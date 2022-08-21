@@ -36,7 +36,7 @@ jobs:
           port: 465
           username: ${{ secrets.MAIL_USERNAME }}
           password: ${{ secrets.MAIL_PASSWORD }}
-          subject: x-report
+          subject: X-Report
           body: ${{ steps.report.outputs.content }}
           to: ${{ secrets.MAIL_TO }}
           from: noreply@phnx47.net
