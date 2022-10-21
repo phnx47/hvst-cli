@@ -1,13 +1,13 @@
-name: 🪄 Send Email
+name: 🪄 Weekly Report
 
 on:
   schedule:
     - cron: "0 10 * * 5"
 
 jobs:
-  send-email:
-    name: 🏭 Run
-    runs-on: ubuntu-20.04
+  send-report:
+    name: 🏭 Send Report
+    runs-on: ubuntu-22.04
     steps:
       - name: 🚚 Checkout
         uses: actions/checkout@v3
