@@ -14,8 +14,8 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: 16
-      - name: ⚙ NPM Install
-        run: npm install
+      - name: ⚙ Install dependencies
+        run: npm ci
       - name: ⚡ Run ESLint
         run: npm run lint
   commitlint:
