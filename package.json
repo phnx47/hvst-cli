@@ -3,12 +3,11 @@
   "version": "0.0.1",
   "description": "Export from Harvest to Slack",
   "repository": "git@github.com:phnx47/x-report.git",
-  "author": "Serge K <serge.k@fastmail.com>",
   "license": "GPL-3.0",
   "scripts": {
     "build": "tsc",
-    "ts-start": "ts-node ./src/index.ts",
-    "start": "node ./dist/index.js",
+    "start": "node ./dist/main.js",
+    "start-local": "dotenv ts-node ./src/main.ts",
     "husky-install": "husky install",
     "lint": "eslint . --ext .ts",
     "lint-fix": "eslint . --ext .ts --fix"
@@ -22,6 +21,7 @@
     "@types/node": "^18.0.0",
     "@typescript-eslint/eslint-plugin": "^5.4.0",
     "@typescript-eslint/parser": "^5.4.0",
+    "dotenv-cli": "^6.0.0",
     "eslint": "^8.3.0",
     "husky": "^8.0.0",
     "ts-node": "^10.3.0",
