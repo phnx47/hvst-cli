@@ -1,17 +1,17 @@
-FROM node:lts-alpine as build
+FROM node:18.12-alpine as build
 
 WORKDIR /app
 
-COPY package.json ./
-RUN npm install
+COPY package*.json ./
+RUN npm ci
 
 COPY . .
 RUN npm run build
 
-FROM node:lts-alpine
+FROM node:18.12-alpine
 
 WORKDIR /app
 
-COPY package.json ./
-RUN npm install --only=production
+COPY package*.json ./
+RUN npm ci --omit=dev
 COPY --from=build /app/dist .
