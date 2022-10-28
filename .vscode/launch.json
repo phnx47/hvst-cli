@@ -6,7 +6,7 @@
       "type": "node",
       "request": "launch",
       "args": [
-        "src/index.ts"
+        "src/main.ts"
       ],
       "runtimeArgs": [
         "-r",
