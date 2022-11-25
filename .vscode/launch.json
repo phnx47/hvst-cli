@@ -2,9 +2,10 @@
   "version": "0.2.0",
   "configurations": [
     {
-      "name": "ts-node",
+      "name": "main.ts",
       "type": "node",
       "request": "launch",
+      "envFile": "${workspaceFolder}/.env",
       "args": [
         "src/main.ts"
       ],
@@ -13,7 +14,6 @@
         "ts-node/register"
       ],
       "cwd": "${workspaceRoot}",
-      "protocol": "inspector",
       "internalConsoleOptions": "openOnSessionStart"
     }
   ]

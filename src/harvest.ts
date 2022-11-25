@@ -34,10 +34,16 @@ export default class Harvest {
         return Promise.resolve(Report.parseHarvest(from, to, response.data));
       })
       .catch((err) => {
-        return Promise.reject({
-          status: err.response.status,
-          message: err.response.statusText
-        });
+        if (err.response) {
+          return Promise.reject({
+            status: err.response.status,
+            message: err.response.statusText
+          });
+        } else {
+          return Promise.reject({
+            message: err.message
+          });
+        }
       })
   }
 }
