@@ -5,6 +5,7 @@
       "name": "ts-node",
       "type": "node",
       "request": "launch",
+      "envFile": "${workspaceFolder}/.env",
       "args": [
         "src/main.ts"
       ],
