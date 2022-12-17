@@ -1,7 +1,7 @@
 # x-report
 
-[![ci](https://github.com/phnx47/x-report/actions/workflows/ci.yml/badge.svg)](https://github.com/phnx47/x-report/actions/workflows/ci.yml)
-[![linters](https://github.com/phnx47/x-report/actions/workflows/linters.yml/badge.svg)](https://github.com/phnx47/x-report/actions/workflows/linters.yml)
-[![report](https://github.com/phnx47/x-report/actions/workflows/report.yml/badge.svg)](https://github.com/phnx47/x-report/actions/workflows/report.yml)
+[![ci](https://img.shields.io/github/actions/workflow/status/phnx47/x-report/ci.yml?branch=main&label=ci&logo=github&style=flat-square)](https://github.com/phnx47/x-report/actions/workflows/ci.yml)
+[![report](https://img.shields.io/github/actions/workflow/status/phnx47/x-report/report.yml?branch=main&label=report&logo=github&style=flat-square)](https://github.com/phnx47/x-report/actions/workflows/report.yml)
+[![license](https://img.shields.io/github/license/phnx47/x-report?style=flat-square)](LICENSE)
 
 Export from Harvest to Slack
