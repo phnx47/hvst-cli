@@ -36,10 +36,10 @@ jobs:
           password: ${{ secrets.MAIL_PASSWORD }}
           subject: X-Report (${{ github.run_number }})
           body: |
-            X-Report generated via GitHub Actions [1]
+            Generated via GitHub Actions [1]
 
             ${{ steps.report.outputs.content }}
 
-            [1] https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}/jobs/${{ github.job }}
+            [1] https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
           to: ${{ secrets.MAIL_TO }}
           from: ${{ secrets.MAIL_FROM }}
