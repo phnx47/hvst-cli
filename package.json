@@ -1,8 +1,8 @@
 {
-  "name": "x-report",
+  "name": "harvest-report",
   "version": "0.0.1",
-  "description": "Export from Harvest to Slack",
-  "repository": "git@github.com:phnx47/x-report.git",
+  "description": "Export Report from Harvest",
+  "repository": "git@github.com:phnx47/harvest-report.git",
   "license": "GPL-3.0",
   "scripts": {
     "build": "tsc",

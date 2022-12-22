@@ -19,7 +19,7 @@ jobs:
           username: ${{ secrets.GH_USERNAME }}
           password: ${{ secrets.GH_PKG_PAT }}
           registry: ghcr.io
-          image: ghcr.io/phnx47/x-report:latest
+          image: ghcr.io/phnx47/harvest-report:latest
           options: -v ${{ github.workspace }}:/app/out -e HARVEST_ACCESS_TOKEN=${{ secrets.HARVEST_ACCESS_TOKEN }} -e HARVEST_ACCOUNT_ID=${{ secrets.HARVEST_ACCOUNT_ID }} -e SLACK_WEBHOOK_URL=${{ secrets.SLACK_WEBHOOK_URL }}
           run: node main.js >> out/report.txt
 
