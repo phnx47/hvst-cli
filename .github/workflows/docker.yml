@@ -1,4 +1,4 @@
-name: 💿 CI
+name: 🐳 Docker
 
 on:
   push:
@@ -7,12 +7,12 @@ on:
 
 jobs:
   build:
-    name: 🏭 Build
+    name: 🏭 Build & Publish
     runs-on: ubuntu-22.04
     steps:
       - name: 🚚 Checkout
         uses: actions/checkout@v3
-      - name: 🐳 Build & Publish to CR
+      - name: 🐳 Build & Publish to GHCR
         uses: elgohr/Publish-Docker-Github-Action@v5
         with:
           name: phnx47/harvest-report
