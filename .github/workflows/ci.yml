@@ -15,7 +15,7 @@ jobs:
       - name: 🐳 Build & Publish to CR
         uses: elgohr/Publish-Docker-Github-Action@v5
         with:
-          name: phnx47/x-report
+          name: phnx47/harvest-report
           username: ${{ secrets.GH_USERNAME }}
           password: ${{ secrets.GH_PKG_PAT }}
           registry: ghcr.io
