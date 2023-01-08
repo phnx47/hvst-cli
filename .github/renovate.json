@@ -12,6 +12,7 @@
     "@phnx47"
   ],
   "automerge": true,
+  "platformAutomerge": true,
   "major": {
     "automerge": false
   }
