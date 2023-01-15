@@ -13,6 +13,7 @@
   ],
   "automerge": true,
   "platformAutomerge": true,
+  "automergeStrategy": "squash",
   "major": {
     "automerge": false
   }
