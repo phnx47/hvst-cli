@@ -1,6 +1,6 @@
 {
   "name": "harvest-report",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Export Report from Harvest",
   "repository": "git@github.com:phnx47/harvest-report.git",
   "license": "GPL-3.0",
