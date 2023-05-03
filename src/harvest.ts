@@ -14,7 +14,7 @@ export default class Harvest {
     this.api = axios.create({
       baseURL: 'https://api.harvestapp.com/api/v2',
       headers: {
-        'User-Agent': 'x-report',
+        'User-Agent': 'harvest-report',
         'Authorization': `Bearer ${this.accessToken}`,
         'Harvest-Account-Id': this.accountId,
         'Content-Type': 'application/json'

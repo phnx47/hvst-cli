@@ -26,16 +26,16 @@ export default class Report {
     const report: Report = new Report(from, to);
     harvestReport.time_entries.forEach((entry) => {
       const task = report.tasks.find(x => x.id === entry.task.id);
-      if (!task) {
+      if (!task && entry.notes) {
         report.tasks.push({
           id: entry.task.id,
           notes: [entry.notes],
           name: entry.task.name
         });
       } else {
-        const hasNotes = task.notes.some(t => t === entry.notes)
-        if (!hasNotes)
+        if (task && !task.notes.some(t => t === entry.notes)) {
           task.notes.push(entry.notes);
+        }
       }
     });
     report.sortTasks();
