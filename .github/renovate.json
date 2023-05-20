@@ -3,7 +3,7 @@
   "extends": [
     "config:base",
     "group:allNonMajor",
-    "schedule:weekends"
+    "schedule:weekly"
   ],
   "labels": [
     "dependencies"
