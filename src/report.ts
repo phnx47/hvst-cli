@@ -25,16 +25,18 @@ export default class Report {
   static parseHarvest(from: string, to: string, harvestReport: HarvestReport): Report {
     const report: Report = new Report(from, to);
     harvestReport.time_entries.forEach((entry) => {
-      const task = report.tasks.find(x => x.id === entry.task.id);
-      if (!task && entry.notes) {
-        report.tasks.push({
-          id: entry.task.id,
-          notes: [entry.notes],
-          name: entry.task.name
-        });
-      } else {
-        if (task && !task.notes.some(t => t === entry.notes)) {
-          task.notes.push(entry.notes);
+      if (entry.notes) {
+        const task = report.tasks.find(x => x.id === entry.task.id);
+        if (!task) {
+          report.tasks.push({
+            id: entry.task.id,
+            notes: [entry.notes],
+            name: entry.task.name
+          });
+        } else {
+          if (task && !task.notes.some(t => t === entry.notes)) {
+            task.notes.push(entry.notes);
+          }
         }
       }
     });
