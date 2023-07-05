@@ -1,4 +1,4 @@
-name: 🪄 Report
+name: Report
 
 on:
   schedule:
@@ -7,10 +7,10 @@ on:
 
 jobs:
   send-report:
-    name: 🏭 Send Report
+    name: Send Report
     runs-on: ubuntu-22.04
     steps:
-      - name: 🐳 Docker Run
+      - name: Docker Run
         uses: addnab/docker-run-action@v3
         with:
           username: ${{ secrets.GH_USERNAME }}
@@ -20,21 +20,21 @@ jobs:
           options: -v ${{ github.workspace }}:/app/out -e HARVEST_ACCESS_TOKEN=${{ secrets.HARVEST_ACCESS_TOKEN }} -e HARVEST_ACCOUNT_ID=${{ secrets.HARVEST_ACCOUNT_ID }}
           run: node main.js >> out/report.txt
 
-      - name: 🗃 Read report.txt
+      - name: Read report.txt
         id: report
         uses: juliangruber/read-file-action@v1
         with:
           trim: true
           path: ./report.txt
 
-      - name: ✉ Send email
+      - name: Send email
         uses: dawidd6/action-send-mail@v3
         with:
           server_address: ${{ secrets.MAIL_SERVER_ADDRESS }}
           server_port: 465
           username: ${{ secrets.MAIL_USERNAME }}
           password: ${{ secrets.MAIL_PASSWORD }}
-          subject: X-Report (${{ github.run_number }})
+          subject: Harvest-Report (${{ github.run_number }})
           body: |
             Generated via GitHub Actions [1]
 
