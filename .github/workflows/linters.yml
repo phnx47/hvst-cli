@@ -1,31 +1,31 @@
-name: 🩺 Linters
+name: Linters
 on: [pull_request]
 
 jobs:
   eslint:
-    name: ⚡ eslint
+    name: ESLint
     runs-on: ubuntu-22.04
     steps:
-      - name: 🚚 Checkout
+      - name: Checkout
         uses: actions/checkout@v3
-      - name: 🛠 Setup NodeJS
+      - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
           node-version: 18
-      - name: ⚙ Install dependencies
+      - name: Install dependencies
         run: npm ci
-      - name: ⚡ Run ESLint
+      - name: Run ESLint
         run: npm run lint
   commitlint:
-    name: 🧫 commitlint
+    name: commitlint
     runs-on: ubuntu-22.04
     steps:
-      - name: 🚚 Checkout
+      - name: Checkout
         uses: actions/checkout@v3
         with:
           fetch-depth: 0
       # Issue: https://github.com/conventional-changelog/commitlint/issues/3256
-      - name: 🐛 Fix conventional-changelog/commitlint#3256 issue
+      - name: Fix conventional-changelog/commitlint#3256 issue
         run: rm tsconfig.json
-      - name: 🧫 Run commitlint
+      - name: Run commitlint
         uses: wagoid/commitlint-github-action@v5
