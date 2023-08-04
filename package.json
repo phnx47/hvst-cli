@@ -7,7 +7,7 @@
   "scripts": {
     "build": "tsc",
     "start": "node ./dist/main.js",
-    "start-local": "ts-node -r dotenv/config ./src/main.ts",
+    "start-local": "tsx -r dotenv/config ./src/main.ts",
     "husky-install": "husky install",
     "lint": "eslint . --ext .ts",
     "lint-fix": "eslint . --ext .ts --fix"
@@ -25,7 +25,7 @@
     "dotenv": "16.3.1",
     "eslint": "8.46.0",
     "husky": "8.0.3",
-    "ts-node": "10.9.1",
+    "tsx": "^3.12.7",
     "typescript": "5.1.6"
   }
 }
