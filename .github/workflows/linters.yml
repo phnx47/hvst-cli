@@ -24,8 +24,5 @@ jobs:
         uses: actions/checkout@v3
         with:
           fetch-depth: 0
-      # Issue: https://github.com/conventional-changelog/commitlint/issues/3256
-      - name: Fix conventional-changelog/commitlint#3256 issue
-        run: rm tsconfig.json
       - name: Run commitlint
         uses: wagoid/commitlint-github-action@v5
