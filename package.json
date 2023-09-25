@@ -19,13 +19,13 @@
     "@commitlint/cli": "17.7.1",
     "@commitlint/config-conventional": "17.7.0",
     "@tsconfig/node20": "20.1.2",
-    "@types/node": "20.6.3",
+    "@types/node": "20.6.5",
     "@typescript-eslint/eslint-plugin": "6.7.2",
     "@typescript-eslint/parser": "6.7.2",
     "dotenv": "16.3.1",
-    "eslint": "8.49.0",
+    "eslint": "8.50.0",
     "husky": "8.0.3",
-    "tsx": "3.12.10",
+    "tsx": "3.13.0",
     "typescript": "5.2.2"
   }
 }
