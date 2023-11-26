@@ -1,30 +1,24 @@
-import { HarvestReport } from './harvestTypes';
-
 export default class Report {
-  private readonly from: string;
-  private readonly to: string;
-  private tasks: Task[];
-
-  private constructor(from: string, to: string) {
+  constructor(from, to) {
     this.from = from;
-    this.to = to
+    this.to = to;
     this.tasks = [];
   }
 
-  getText(): string {
+  getText() {
     let text = `Report from *${this.from}* to *${this.to}* \n\n`;
-    this.tasks.forEach((task) => {
+    this.tasks.forEach(task => {
       text = text + `*${task.name}*\n`;
-      task.notes.forEach((note) => {
+      task.notes.forEach(note => {
         text = text + `- ${note}\n`;
-      })
+      });
     });
     return text;
   }
 
-  static parseHarvest(from: string, to: string, harvestReport: HarvestReport): Report {
-    const report: Report = new Report(from, to);
-    harvestReport.time_entries.forEach((entry) => {
+  static parseHarvest(from, to, harvestReport) {
+    const report = new Report(from, to);
+    harvestReport.time_entries.forEach(entry => {
       if (entry.notes) {
         const task = report.tasks.find(x => x.id === entry.task.id);
         if (!task) {
@@ -44,13 +38,7 @@ export default class Report {
     return report;
   }
 
-  private sortTasks() {
+  sortTasks() {
     this.tasks = this.tasks.sort((a, b) => a.id - b.id);
   }
-}
-
-type Task = {
-  id: number,
-  name: string;
-  notes: string[];
 }
