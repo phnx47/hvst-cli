@@ -21,8 +21,11 @@ jobs:
       - name: Install dependencies
         run: npm ci --omit=dev
 
-      - name: Run
+      - name: Generate report.txt
         run: npm start >> report.txt
+        env:
+          HARVEST_ACCESS_TOKEN: ${{ secrets.HARVEST_ACCESS_TOKEN }}
+          HARVEST_ACCOUNT_ID: ${{ secrets.HARVEST_ACCOUNT_ID }}
 
       - name: Read report.txt
         id: report
