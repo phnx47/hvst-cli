@@ -4,10 +4,11 @@
   "description": "Export Report from Harvest",
   "repository": "git@github.com:phnx47/harvest-report.git",
   "license": "GPL-3.0",
-  "main": "./src/main.js",
+  "main": "./lib/main.js",
   "type": "module",
   "scripts": {
-    "start": "node -r dotenv/config ./src/main.js",
+    "start": "node ./lib/main.js",
+    "start:dotenv": "node -r dotenv/config ./lib/main.js",
     "husky:install": "husky install",
     "lint": "eslint . --ext .js",
     "lint:fix": "eslint . --ext .js --fix",

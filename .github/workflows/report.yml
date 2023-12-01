@@ -10,15 +10,16 @@ jobs:
     name: Send Report
     runs-on: ubuntu-22.04
     steps:
-      - name: Docker Run
-        uses: addnab/docker-run-action@v3
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
         with:
-          username: ${{ secrets.GH_USERNAME }}
-          password: ${{ secrets.GH_PKG_PAT }}
-          registry: ghcr.io
-          image: ghcr.io/phnx47/harvest-report:latest
-          options: -v ${{ github.workspace }}:/app/out -e HARVEST_ACCESS_TOKEN=${{ secrets.HARVEST_ACCESS_TOKEN }} -e HARVEST_ACCOUNT_ID=${{ secrets.HARVEST_ACCOUNT_ID }}
-          run: node main.js >> out/report.txt
+          node-version-file: .node-version
+
+      - name: Install dependencies
+        run: npm ci --omit=dev
+
+      - name: Run
+        run: npm start >> report.txt
 
       - name: Read report.txt
         id: report
