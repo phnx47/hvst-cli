@@ -15,7 +15,6 @@
     "commitlint": "commitlint"
   },
   "dependencies": {
-    "axios": "1.6.2"
   },
   "devDependencies": {
     "@commitlint/cli": "18.4.3",
