@@ -11,7 +11,7 @@ const harvest = new Harvest();
 const timeEntries = await harvest.getTimeEntries(from, to);
 
 const report = new Report(from, to, timeEntries);
-const txt = report.generateText();
+const txt = report.generate();
 console.log(txt);
 
 // const slack = new Slack();
