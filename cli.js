@@ -1,6 +1,25 @@
+#!/usr/bin/env node
+
+import meow from "meow";
 import Harvest from "./lib/harvest.js";
 import Report from "./lib/report.js";
-// import Slack from "./lib/slack.js";
+import Slack from "./lib/slack.js";
+
+const cli = meow(`
+Usage:
+  hvst [options]
+
+Options:
+  --slack, -s  Send a report to Slack
+`, {
+  importMeta: import.meta,
+  flags: {
+    slack: {
+      type: "boolean",
+      shortFlag: "s"
+    }
+  }
+});
 
 const now = new Date();
 const first = new Date(now.setDate(now.getDate() - now.getDay() + 1));
@@ -14,5 +33,8 @@ const report = new Report(from, to, timeEntries);
 const txt = report.generate();
 console.log(txt);
 
-// const slack = new Slack();
-// await slack.push(txt);
+if (cli.flags.slack) {
+  const slack = new Slack();
+  await slack.push(txt);
+}
+

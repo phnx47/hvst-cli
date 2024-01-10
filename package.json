@@ -1,20 +1,21 @@
 {
   "name": "hvst",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "Generate a weekly Harvest report",
   "repository": "git@github.com:phnx47/hvst.git",
   "license": "GPL-3.0",
   "type": "module",
-  "main": "main.js",
+  "bin": "./cli.js",
   "scripts": {
-    "start": "node .",
-    "start:dotenv": "node -r dotenv/config .",
+    "start": "node cli.js",
+    "start:dotenv": "node -r dotenv/config cli.js",
     "husky:install": "husky install",
     "lint": "eslint . --ext .js",
     "lint:fix": "eslint . --ext .js --fix",
     "commitlint": "commitlint"
   },
   "dependencies": {
+    "meow": "^13.1.0"
   },
   "devDependencies": {
     "@commitlint/cli": "18.4.4",
