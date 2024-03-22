@@ -21,10 +21,12 @@ Options:
   }
 });
 
-const now = new Date();
-const first = new Date(now.setDate(now.getDate() - now.getDay() + 1));
-const from = first.toISOString().slice(0, 10);
-const to = new Date(now.setDate(first.getDate() + 4)).toISOString().slice(0, 10);
+const today = new Date();
+const firstDay = new Date(today.setDate(today.getDate() - today.getDay() + 1));
+const lastDay = new Date(today.setDate(today.getDate() - today.getDay() + 5));
+
+const from = new Date(firstDay.getTime() - (firstDay.getTimezoneOffset() * 60000)).toISOString().slice(0, 10);
+const to =  new Date(lastDay.getTime() - (lastDay.getTimezoneOffset() * 60000)).toISOString().slice(0, 10);
 
 const harvest = new Harvest();
 const timeEntries = await harvest.getTimeEntries(from, to);
