@@ -21,6 +21,7 @@ jobs:
         env:
           HARVEST_ACCESS_TOKEN: ${{ secrets.HARVEST_ACCESS_TOKEN }}
           HARVEST_ACCOUNT_ID: ${{ secrets.HARVEST_ACCOUNT_ID }}
+          HARVEST_CLIENT_ID: ${{ secrets.HARVEST_CLIENT_ID }}
 
       - name: Read report.txt
         id: report
