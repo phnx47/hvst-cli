@@ -5,7 +5,7 @@ import Harvest from "./lib/harvest.js";
 import Report from "./lib/report.js";
 import Slack from "./lib/slack.js";
 
-const cli = meow(`
+let cli = meow(`
 Usage:
   hvst [options]
 
