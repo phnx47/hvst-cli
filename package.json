@@ -9,7 +9,7 @@
   },
   "bin": "./cli.js",
   "scripts": {
-    "prepare": "husky",
+    "husky": "husky",
     "start": "node cli.js",
     "start:dotenv": "node -r dotenv/config cli.js",
     "lint": "eslint",
