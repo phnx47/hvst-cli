@@ -1,6 +1,6 @@
 {
   "name": "hvst-cli",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Generate a weekly Harvest report",
   "license": "AGPL-3.0",
   "type": "module",
@@ -12,20 +12,18 @@
   },
   "scripts": {
     "husky": "husky",
-    "start": "node cli.js",
-    "start:dotenv": "node -r dotenv/config cli.js",
     "lint": "eslint",
     "lint:fix": "eslint --fix",
     "commitlint": "commitlint"
   },
   "dependencies": {
-    "meow": "^13.1.0"
+    "meow": "^13.1.0",
+    "dotenv": "^16.4.2"
   },
   "devDependencies": {
     "@commitlint/cli": "^19.0.0",
     "@commitlint/config-conventional": "^19.0.0",
     "@eslint/js": "^9.9.0",
-    "dotenv": "^16.4.2",
     "eslint": "^9.9.0",
     "globals": "^15.9.0",
     "husky": "^9.0.10"

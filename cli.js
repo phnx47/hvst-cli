@@ -1,11 +1,12 @@
 #!/usr/bin/env node
 
+import "dotenv/config";
 import meow from "meow";
 import Harvest from "./lib/harvest.js";
 import Report from "./lib/report.js";
 import Slack from "./lib/slack.js";
 
-let cli = meow(`
+const cli = meow(`
 Usage:
   hvst [options]
 
