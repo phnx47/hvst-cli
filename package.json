@@ -1,0 +1,31 @@
+{
+  "name": "@phnx47/hvst-cli",
+  "version": "0.1.4",
+  "description": "Generate a weekly Harvest report",
+  "license": "GPL-3.0-or-later",
+  "type": "module",
+  "engines": {
+    "node": ">=18"
+  },
+  "bin": {
+    "hvst": "cli.js"
+  },
+  "scripts": {
+    "husky": "husky",
+    "lint": "eslint",
+    "lint:fix": "eslint --fix",
+    "prettier": "prettier . --check",
+    "prettier:fix": "prettier . --write"
+  },
+  "dependencies": {
+    "dotenv": "^16.4.2",
+    "meow": "^13.1.0"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.9.0",
+    "eslint-config-prettier": "^9.1.0",
+    "globals": "^15.9.0",
+    "husky": "^9.0.10",
+    "prettier": "^3.3.3"
+  }
+}

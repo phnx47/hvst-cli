@@ -1,0 +1,12 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": ["config:recommended", "group:allNonMajor", "schedule:weekly"],
+  "labels": ["dependencies"],
+  "assignees": ["@phnx47"],
+  "automerge": true,
+  "platformAutomerge": true,
+  "automergeStrategy": "squash",
+  "major": {
+    "automerge": false
+  }
+}
