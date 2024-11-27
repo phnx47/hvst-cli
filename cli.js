@@ -10,7 +10,7 @@ Usage:
   hvst [options]
 
 Options:
-  --slack, -s  Send a report to Slack
+  --slack, -s  Send the generated report to Slack
 `;
 
 const options = {
