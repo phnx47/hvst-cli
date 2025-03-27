@@ -1,12 +1,13 @@
-const HARVEST_URL = "https://api.harvestapp.com";
 const { HARVEST_ACCOUNT_ID, HARVEST_ACCESS_TOKEN, HARVEST_CLIENT_ID } = process.env;
 
-if (!HARVEST_ACCESS_TOKEN) {
+const HARVEST_URL = "https://api.harvestapp.com";
+const MS_PER_MINUTE = 60_000;
+const MS_PER_DAY = 86_400_000;
+
+if (!HARVEST_ACCESS_TOKEN)
   throw new Error("Environment variable 'HARVEST_ACCESS_TOKEN' is not defined");
-}
-if (!HARVEST_ACCOUNT_ID) {
+if (!HARVEST_ACCOUNT_ID)
   throw new Error("Environment variable 'HARVEST_ACCOUNT_ID' is not defined");
-}
 
 const headers = {
   "Authorization": `Bearer ${HARVEST_ACCESS_TOKEN}`,
@@ -14,17 +15,21 @@ const headers = {
   "Content-Type": "application/json",
 };
 
-export function getWeeklyReport() {
+export async function getWeeklyReport() {
   const date = new Date();
-  const tzOffsetMilliseconds = date.getTimezoneOffset() * 60000;
+  const tzOffset = date.getTimezoneOffset() * MS_PER_MINUTE;
 
-  const fromDate = new Date(date.setDate(date.getDate() - date.getDay() + 1));
-  const toDate = new Date(date.setDate(date.getDate() - date.getDay() + 5));
+  const monday = new Date(date.setDate(date.getDate() - date.getDay() + 1));
+  const friday = new Date(date.setDate(date.getDate() - date.getDay() + 5));
 
-  const from = new Date(fromDate.getTime() - tzOffsetMilliseconds).toISOString().slice(0, 10);
-  const to = new Date(toDate.getTime() - tzOffsetMilliseconds).toISOString().slice(0, 10);
+  const from = new Date(monday.getTime() - tzOffset).toISOString().slice(0, 10);
+  const to = new Date(friday.getTime() - tzOffset).toISOString().slice(0, 10);
+  const week = Math.floor((monday - new Date(monday.getFullYear(), 0, 1)) / MS_PER_DAY / 7) + 1;
 
-  return getReport(from, to);
+  const subject = `Week ${week} of ${monday.getFullYear()}`;
+  const text = await getReport(from, to);
+
+  return { subject, text };
 }
 
 async function getReport(from, to) {
@@ -42,7 +47,7 @@ async function getReport(from, to) {
     return formatTimeEntries(from, to, data.time_entries);
   }
 
-  throw new Error(`status=${response.status}, message='${await response.text()}'`);
+  throw new Error(`Failed to get Harvest report: ${response.status} '${await response.text()}'`);
 }
 
 function formatTimeEntries(from, to, timeEntries) {
