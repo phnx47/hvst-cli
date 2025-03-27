@@ -1,6 +1,6 @@
 {
   "name": "@phnx47/hvst-cli",
-  "version": "0.1.4",
+  "version": "0.2.0",
   "description": "Generate Harvest reports via CLI",
   "license": "GPL-3.0-or-later",
   "type": "module",
