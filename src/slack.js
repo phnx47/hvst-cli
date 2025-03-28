@@ -9,9 +9,10 @@ export async function sendToSlack(text) {
     body: JSON.stringify({ text }),
   });
 
+  const msg = await response.text();
   if (response.ok) {
-    console.log("Report sent to Slack");
+    console.log(`Report sent to Slack: ${response.status} - '${msg}'`);
   } else {
-    console.log(`Failed to send report to Slack: ${response.status} '${await response.text()}'`);
+    console.log(`Failed to send report to Slack: ${response.status} - '${msg}'`);
   }
 }
