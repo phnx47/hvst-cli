@@ -20,7 +20,7 @@
   "dependencies": {
     "dotenv": "^16.4.7",
     "meow": "^13.2.0",
-    "nodemailer": "^6.10.0"
+    "nodemailer": "^7.0.0"
   },
   "devDependencies": {
     "@eslint/js": "^9.23.0",
