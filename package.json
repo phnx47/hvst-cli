@@ -18,7 +18,7 @@
     "prettier:fix": "prettier . --write"
   },
   "dependencies": {
-    "dotenv": "^16.4.7",
+    "dotenv": "^17.0.0",
     "meow": "^13.2.0",
     "nodemailer": "^7.0.0"
   },
